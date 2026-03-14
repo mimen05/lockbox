@@ -1,0 +1,10 @@
+# Security keys
+secret.key
+
+# Personal data
+passwords.json
+
+# Environment/System junk
+venv/
+.DS_Store
+__pycache__/
