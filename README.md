@@ -1,2 +1,2 @@
 # lockbox
-A simple password manager.
+A simple password manager in the terminal.
