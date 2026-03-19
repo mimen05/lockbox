@@ -55,6 +55,17 @@ def get_password(service):
     else:
         print(f"[!] No entry found for '{service}'.")
 
+def delete_password(service):
+    vault = load_vault()
+    service = service.lower()
+    if service in vault:
+        del vault[service]
+        save_vault(vault)
+        print(f"[-] Removed entry for: {service}")
+    else:
+        print(f"[!] No entry found for '{service}' to delete.")
+
+
 def list_services():
     vault = load_vault()
     if not vault:
@@ -80,5 +91,7 @@ if __name__ == "__main__":
             get_password(sys.argv[2])
         elif action == "list":
             list_services()
+        elif action == "delete" and len(sys.argv) == 3:
+            delete_password(sys.argv[2])
         else:
             print("[!] Invalid command or missing arguments.")
